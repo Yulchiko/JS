@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //    - Нам дано масив друзів let friends = ["Ivan", "Slavik", "Grisha", "Lera", "Ira"]; Потрібно зробити перевірку якщо
+    //кількість елементів у масиві більше або дорівнює 3, то виводиться повідомлення про те, що це великий масив, в якому  3 і більше елементи.
+    //    Інакше слід вивести на екран повідомлення про те, що це маленький масив, в якому менше 3-х елементів.
+    let friends = prompt['Ivan, Slavik, Grisha, Lera, Ira'];
+
+    if (friends > 3 && friends === 3){
+        document.write('великий масив, в якому  3 і більше елементи');
+    }else{ if(friends < 3){
+        document.write('це маленький масив');}
+        }
+    // - Маємо 3 числа і між ним  нам потрібно знайти те що посередині.
+    //Знайти, яке з них є середнім (більше одного, але менше за інше).
+    // Перевірити, чи знаходиться перше число між двома іншими.
+    const grades = [80, 77, 88, 95, 68];
+
+    function getAvg(grades) {
+        const total = grades.reduce((acc, c) => acc + c, 0);
+        return total / grades.length;
+    }
+
+    const average = getAvg(grades);
+    console.log(average);
+    document.write(average);
+
+    // - Перепишіть конструкцію if з використанням умовного оператора '?':
+
+    let a = 1;
+    let b = 2;
+    let c = 4;
+        if (a+b <  c ) {
+       document.write('Мало?');
+    } else {
+            document.write('Багато?');
+    }
+        //    - Маємо будь яке число від -100 , 0 , +100 потрібно перевірити яким є число: позитивним, негативним або нулем
+    //напишіть це тернарним оператором
+    let temperature = 0;
+        let result;
+        result = (0 < temperature > 0) ? 'позитивна': 'негативна';
+</script>
+</body>
+</html>
