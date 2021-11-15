@@ -40,7 +40,7 @@ while (i < 20){
 }
 // - Створити масив з 10 числових елементів. Вивести в консоль всі його елементи в циклі.
 let time = [12, 14, 18, 20, 22, 24, 32, 44, 88, 144];
-for (i = 0; i < 10; i++){
+for (i = 0; i < time.length; i++){
     console.log(time[i]);
 }
 
@@ -74,18 +74,19 @@ for (u = 0; u < user.length; u++){
     }
 }
 // - Створити порожній масив. Наповнити його 10 елементами (різними за типами) через звернення до конкретних індексів. Вивести в консоль всі його елементи в циклі.
-array [5] = 'space';
-array [9] = 'Lina';
-array [0] = 1;
-array [1] = 'hello';
-array [6] = 'owu';
-array [3] = 25;
-array [7] = 'com';
-array [2] = 'hay';
-array [4] = 458;
-array [8] = 1042;
-for (u = 0; u < array.length; u++){
-    console.log(array[u]);
+let array1 = [];
+array1 [5] = 'space';
+array1 [9] = 'Lina';
+array1 [0] = 1;
+array1 [1] = 'hello';
+array1 [6] = 'owu';
+array1 [3] = 25;
+array1 [7] = 'com';
+array1 [2] = 'hay';
+array1 [4] = 458;
+array1 [8] = 1042;
+for (let u = 0; u < array1.length; u++){
+    console.log(array1[u]);
 }
 //  - Створити цикл for на 10  ітерацій з кроком 1. Вивести поточний номер кроку через console.log та document.write
 for (let u = 0; u < 10; u++){
@@ -113,7 +114,7 @@ for (let u = 0; u < 100; u++){
 }
 //- Створити цикл for на 100 ітерацій. Вивести тільки непарні кроки. через console.log + document.write
 for (let u = 0; u < 100; u++){
-    if (u%2 === 1){
+    if (u%2 !== 0){
         console.log(`step :`, u);
         document.write(`step : ${u} <br>`);
     }
