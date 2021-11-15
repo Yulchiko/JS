@@ -51,18 +51,25 @@
     let number = prompt('Выбери число?');
     if (number === 10) {
         document.write('<h1>true</h1>');
-    } else if (number > 10 && number < 10) {
+    } else {
         document.write('<h1>false</h1>');
     }
 
     //Ми маємо змінну x в яку користувач задає  значення,  якщо в змінну записане число, вивести 1,
     // якщо в змінну записали стрінгу вивести 2, якщо булеве значення - 3, якщо об'єкт або масив - 3.
     // якщо в змінну записали щось інше, спрацьовує else
-    let number1 = 1;
-    if (typeof x === number1) {
-        console.log('Введен тип данных number1');
-    } else {
-        document.write('Другое');
+    let data = {'number': 1, 'string': 2, 'boolean': 3, 'object': 4};
+    let x = {1:'a', 2:'b', 3: 'c', 4: 'd'};
+    if (typeof x === "number"){
+        console.log(data.number);
+    }else if (typeof x === "string"){
+        console.log(data.string);
+    }else if (typeof x === "boolean"){
+        console.log(data.boolean);
+    }else if (typeof x === "object"){
+        console.log(data.object);
+    }else {
+        console.log('Другое');
     }
 
     //- Задача-гра "чи ми йдемо сьогодні в OKTEN на навчання?".

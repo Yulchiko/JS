@@ -14,40 +14,37 @@
     //    Інакше слід вивести на екран повідомлення про те, що це маленький масив, в якому менше 3-х елементів.
     let friends = prompt['Ivan, Slavik, Grisha, Lera, Ira'];
 
-    if (friends > 3 && friends === 3){
+    if (friends > 3 || friends === 3) {
         document.write('великий масив, в якому  3 і більше елементи');
-    }else{ if(friends < 3){
-        document.write('це маленький масив');}
+    } else {
+        if (friends < 3) {
+            document.write('це маленький масив');
         }
+    }
     // - Маємо 3 числа і між ним  нам потрібно знайти те що посередині.
     //Знайти, яке з них є середнім (більше одного, але менше за інше).
     // Перевірити, чи знаходиться перше число між двома іншими.
-    const grades = [80, 77, 88, 95, 68];
-
-    function getAvg(grades) {
-        const total = grades.reduce((acc, c) => acc + c, 0);
-        return total / grades.length;
+   let numbers = [];
+    if (numbers[0] > numbers[1] || numbers[0] < numbers[2]){
+        console.log(numbers[0]);
+    }else if (numbers [1] > numbers [0] || numbers [1] < numbers[2]){
+        console.log(numbers[1], 'middle numbers');
+    } else if (numbers[2] > numbers[0] || numbers[2] < numbers[2]){
+        console.log(numbers[2]);
+    }else{
+        console.log('something goes wrong')
     }
-
-    const average = getAvg(grades);
-    console.log(average);
-    document.write(average);
-
     // - Перепишіть конструкцію if з використанням умовного оператора '?':
 
-    let a = 1;
-    let b = 2;
-    let c = 4;
-        if (a+b <  c ) {
-       document.write('Мало?');
-    } else {
-            document.write('Багато?');
-    }
-        //    - Маємо будь яке число від -100 , 0 , +100 потрібно перевірити яким є число: позитивним, негативним або нулем
+    let a = '';
+    let b = '';
+     result = (a + b < 4) ? console.log('Мало') : console.log('Багато');
+
+    //    - Маємо будь яке число від -100 , 0 , +100 потрібно перевірити яким є число: позитивним, негативним або нулем
     //напишіть це тернарним оператором
     let temperature = 0;
-        let result;
-        result = (0 < temperature > 0) ? 'позитивна': 'негативна';
+    let result;
+    result = (0 < temperature > 0) ? 'позитивна' : 'негативна';
 </script>
 </body>
 </html>
