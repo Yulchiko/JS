@@ -41,17 +41,14 @@ newArr(array);
 //EXAMPLE:
 //  [{name: 'Dima', age: 13}, {model: 'Camry'}];
 // ===> [ Dima, 13, Camry ]
-function Object_values(obj) {
+function Object_values(x) {
     let vals = [];
-    for (const prop in obj) {
-        vals.push(obj[prop]);
+    for (const key of x) {
+        for (const prop in key) {
+            vals.push(key[prop]);
+        }
     }
-    return vals;
-}
+        console.log(vals);
+    }
 
-let obj = {name: 'Dima', age: 13, model: 'Camry'};
-
-console.log(Object_values(obj));
-
-console.log(Object_values(obj).join(', '));
-
+Object_values(array);
