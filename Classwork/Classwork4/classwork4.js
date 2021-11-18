@@ -1,27 +1,34 @@
 //- створити функцію яка приймає три числа та виводить найменьше. (Без Math.min!)
 
-function min(arr){
-   let min = arr[1];
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] < min) {
-            min = arr[i];
+function numMin(num1, num2, num3) {
+         if (num1 < num2 && num1 < num3) {
+          document.write(num1);
+             console.log(num1);
+        } else if (num2 < num3 && num2 < num1) {
+            console.log(num2);
+            document.write(num2);
+        } else {
+           console.log(num3);
+           document.write(num3);
         }
     }
-    return min;
-}
-document.write(min([10, 20, 45]));
+   numMin(8, 20, 125);
+
 //- створити функцію яка приймає три числа та виводить найбільше. (Без Math.max!)
 
-function max(arr) {
-    let max = arr[0];
-    for (let i = 1; i < arr.length; i++) {
-        if (arr[i] > max) {
-            max = arr[i];
-        }
-    }
-    return max;
-}
-document.write(max([10, 20, 45]));
+ function numMax(num1, num2, num3) {
+    if (num1 > num2 && num1 > num3) {
+        document.write(num1);
+        console.log(num1);
+     } else if (num2 > num3 && num2 > num1) {
+         console.log(num2);
+         document.write(num2);
+     } else {
+         console.log(num3);
+         document.write(num3);
+     }
+ }
+ numMax(8, 20, 125);
 //- створити функцію яка повертає найбільше число з масиву
 
 const funMax = (array)=> {
@@ -46,17 +53,28 @@ const funMin1 = (array)=> {
 const funMaxReturn1 = funMin1([2,3,4,5,6,10,4,3,6]);
 console.log(funMaxReturn1);
 //- створити функцію яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад [1,2,10]->13
+ let summArray = [1,2,3,4]; // 10
+ function sumElement (array){
+     let sum = 0;
+    for (const arrayElement of array) {
+                 sum = arrayElement + sum;
+     }
+     return sum;
+ }
+ document.write(sumElement(summArray))
 
-function calculator(action, a, b, c){
-    return action (a, b, c);
-}
-console.log(calculator(function (a, b, c ){return a + b + c}, 1, 2,  10));
 //- створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
 
-function calculator1(action, a, b, c){
-    return action (a, b, c);
-}
-console.log(calculator1(function (a, b, c ){return (a + b + c)/3}, 1, 2,  10));
+ let seredArray = [1,2,3]; // 6/3=2
+ function sered (array){
+    let sum = 0;
+     for (const arrayElement of array) {
+         // sum += arrayElement; // // 1 спосіб скорочений
+        sum = arrayElement + sum;
+     }
+    return sum/array.length;
+ }
+ document.write(sered(seredArray))
 //- створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше (Math використовувати заборонено);
 let list = [34, 1, 529, -78, 89.7, 1243, 2000, 300000];
 function maxElement (list){

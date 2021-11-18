@@ -12,13 +12,16 @@ greeting('owu', '.com');
 //   [2,3,4,5]
 //результат
 //   [3,5,7,9]
-function sumArrays(...arrays) {
-    const n = arrays.reduce((max, xs) => Math.max(max, xs.length), 0);
-    const result = Array.from({length: n});
-    return result.map((_, i) => arrays.map(xs => xs[i] || 0).reduce((sum, x) => sum + x, 0));
+const sumArray = (array1,array2) => {
+    let newArray = [];
+    for (let i = 0; i < array1.length; i++) {
+        newArray.push(array1[i] + array2[i]);
+    }
+    return newArray;
 }
+const returnArrayConst = sumArray([1,2,3,4],[2,3,4,5]);
+console.log(returnArrayConst);
 
-console.log(...sumArrays([1, 2, 3, 4], [2, 3, 4, 5]));
 
 //- Створити функцію яка приймає масив будь яких объектів, та повертає масив ключів всіх обєктів
 //EXAMPLE:
@@ -41,17 +44,14 @@ newArr(array);
 //EXAMPLE:
 //  [{name: 'Dima', age: 13}, {model: 'Camry'}];
 // ===> [ Dima, 13, Camry ]
-function Object_values(obj) {
+function object_values(x) {
     let vals = [];
-    for (const prop in obj) {
-        vals.push(obj[prop]);
+    for (const key of x) {
+        for (const prop in key) {
+            vals.push(key[prop]);
+        }
     }
-    return vals;
-}
+        console.log(vals);
+    }
 
-let obj = {name: 'Dima', age: 13, model: 'Camry'};
-
-console.log(Object_values(obj));
-
-console.log(Object_values(obj).join(', '));
-
+object_values(array);
