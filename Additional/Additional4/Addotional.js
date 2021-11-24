@@ -1,36 +1,39 @@
 //- Дано натуральное число n. Выведите все числа от 1 до n.
-let numberOutput = (n) => {
-  return n ? numberOutput(n - 1) + n.toString() : "";
+let recursion = (n) => {
+  console.log (n);
+  n++;
+  if (n > 5){
+    return;
+  }
+  recursion(n);
 }
-console.log(numberOutput(9));
-
+recursion(1);
 //- Даны два целых числа A и В . Выведите все числа от A до B включительно, в порядке возрастания, если A < B, или в порядке убывания в противном случае.
-let b = 10;
-let recursion = (a) => {
-  console.log(a);
-  a++;
+let rec = (a, b) => {
+   a++;
+   console.log(a);
 if (a > b){
   return;
 }
-  recursion(a);
+  rec(a, b);
 }
-recursion(5);
+rec(0, 100);
 //-   функція Приймає масив та число "i", та міняє місцями об`єкт який знаходиться в індексі "i" на "i+1"
   //EXAMPLE:
   //let foo = [9,8,0,4]; //0) // ==> [ 8, 9, 0, 4 ]
-function swap(arr) {
+function swap(arr, i) {
   [arr[0], arr[1]] = [arr[1], arr[0]];
   return arr;
 }
 console.log(swap([9,8,0,4]));
   //let foo1 = [9,8,0,4]; //1) // ==> [ 9 ,0, 8, 4 ]
-function swap1(arr) {
+function swap1(arr, i) {
   [arr[1], arr[2]] = [arr[2], arr[1]];
   return arr;
 }
 console.log(swap1([9,8,0,4]));
   //let foo2 = [9,8,0,4]; //2) // ==> [ 9, 8, 4, 0 ]
-function swap2(arr) {
+function swap2(arr, i) {
   [arr[2], arr[3]] = [arr[3], arr[2]];
   return arr;
 }
