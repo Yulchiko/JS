@@ -51,11 +51,13 @@ document.writeln(delete_characters(str7, 7));
 //- Напишіть функцію insert_dash(str), яка приймає рядок str як аргумент і вставляє тире (-) між словами. При цьому всі символи рядка необхідно перевести у верхній регістр.
 //    let str = "HTML JavaScript PHP";
 //document.writeln(insert_dash(str)); // 'HTML-JAVASCRIPT-PHP'
-let str8 = "HTML JavaScript PHP";
-function insert_dash(str8) {
-    return str8.trim().toUpperCase().replace(/[^a-zA-Z0-9 -]/, "").replace(/\s/g, "-");
+let insert_dash = (str) => {
+    return str.split(' ').join('-').toUpperCase();
 }
-document.writeln(insert_dash(str8));
+     let string = "HTML JavaScript PHP";
+     console.log(insert_dash(string));
+     document.write(insert_dash(string)); // 'HTML-JAVASCRIPT-PHP'
+
 //- Напишіть функцію, яка приймає рядок як аргумент і перетворює регістр першого символу рядка з нижнього регістру у верхній.
 let str9 = 'каждый охотник желает знать';
 function ucFirst(str9) {
