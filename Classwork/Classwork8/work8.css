@@ -1,0 +1,6 @@
+body > h1{
+    background: aqua;
+    color: darkorange;
+    width: 250px;
+    text-align: center;
+}
