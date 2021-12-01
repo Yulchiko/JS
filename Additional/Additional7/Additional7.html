@@ -54,14 +54,13 @@
    function reCall(startElement){
        if (startElement.children.length){
            console.log(startElement);
-           for (const Element of startElement.children){
-                              reCall(Element);
-               arrElement.push(Element);
+           for (const element of startElement.children){
+                              reCall(element);
+               arrElement.push(element);
            }
       }
    }
    reCall(document.body)
-
    console.log(arrElement);
   // 2 вариант
    let arrElement1 = [];
@@ -72,10 +71,8 @@
        for (const child of startElement.children){
            reCallk(child);
        }
-
    }
    reCallk(document.body);
-
    console.log(arrElement1);
 </script>
 </body>
