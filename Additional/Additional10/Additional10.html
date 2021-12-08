@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 10px;
+
+        }
+
+        .carousel {
+            position: relative;
+            width: 398px;
+            padding: 10px 40px;
+            border: 1px solid #CCC;
+            border-radius: 15px;
+            background: #eee;
+        }
+
+        .carousel img {
+            width: 130px;
+            height: 130px;
+            display: block;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 60px;
+            padding: 0;
+            background: #ddd;
+            border-radius: 15px;
+            border: 1px solid gray;
+            font-size: 24px;
+            line-height: 24px;
+            color: #444;
+            display: block;
+        }
+
+        .arrow:focus {
+            outline: none;
+        }
+
+        .arrow:hover {
+            background: #ccc;
+            cursor: pointer;
+        }
+
+        .prev {
+            left: 7px;
+        }
+
+        .next {
+            right: 7px;
+        }
+
+        .gallery {
+            width: 390px;
+            overflow: hidden;
+        }
+        .gallery ul {
+            height: 130px;
+            width: 9999px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            transition: margin-left 250ms;
+            font-size: 0;
+        }
+
+        .gallery li {
+            display: inline-block;
+        }
+                #editor1 {
+            border: 3px inset grey;
+
+          width: 381px;
+            margin: 10px auto 0;
+        }
+        fieldset {
+            margin: 2px auto 15px;
+            width: 358px;
+        }
+        button {
+            width: 100px;
+            text-align: center;
+            padding: 1px 3px;
+        }
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: green;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #ddd;}
+
+        .dropdown:hover .dropdown-content {display: block;}
+
+        .dropdown:hover .dropbtn {background-color: #3e8e41;}
+    </style>
+</head>
+<body>
+<input type="button" value="Нажми меня" id="elem">
+<h2>Hoverable Dropdown</h2>
+<p>Move the mouse over the button to open the dropdown menu.</p>
+<div class="dropdown">
+    <button class="dropbtn">Dropdown</button>
+    <div class="dropdown-content">
+        <a href="#" id="а1" onclick="this.style.display = 'none'" >localName</a>
+        <a href="#" id="а2" onclick="this.style.display = 'none'">classList</a>
+        <a href="#" id="а3" onclick="this.style.display = 'none'" >clientHeight</a>
+        <a href="#" id="а4" onclick="this.style.display = 'none'" >clientWidth</a>
+    </div>
+</div>
+<form action="/someaction" id="f1">
+    <input type="text" name="city"/>
+    <input type="number" name="age"/>
+    <input type="checkbox" name="status"/>
+    <button> Давай жми!</button>
+</form>
+<div id="carousel" class="carousel">
+    <button class="arrow prev">⇦</button>
+    <div class="gallery">
+        <ul class="images">
+            <li><img src="https://js.cx/carousel/1.png" alt="carousel"/></li>
+            <li><img src="https://js.cx/carousel/2.png" alt="carousel"/></li>
+            <li><img src="https://js.cx/carousel/3.png" alt="carousel"/></li>
+            <li><img src="https://js.cx/carousel/4.png" alt="carousel"/></li>
+            <li><img src="https://js.cx/carousel/5.png" alt="carousel"/></li>
+            <li><img src="https://js.cx/carousel/6.png" alt="carousel"/></li>
+            <li><img src="https://js.cx/carousel/7.png" alt="carousel"/></li>
+            <li><img src="https://js.cx/carousel/8.png" alt="carousel"/></li>
+            <li><img src="https://js.cx/carousel/9.png" alt="carousel"/></li>
+            <li><img src="https://js.cx/carousel/10.png" alt="carousel"/></li>
+        </ul>
+    </div>
+    <button class="arrow next">⇨</button>
+</div>
+<div id="element">
+    <p id="ter">
+        <button id="btn">вперед</button>
+        <button id="btn1">назад</button>
+    </p>
+</div>
+<div id="editor1" contenteditable="true">
+    The quick brown fox jumped over the lazy dog.
+</div>
+<fieldset>
+    <button class="fontStyle" onclick="document.execCommand('italic',false,null);" title="Italicize Highlighted Text"><i>I</i>
+    </button>
+    <button class="fontStyle" onclick="document.execCommand( 'bold',false,null);" title="Bold Highlighted Text"><b>B</b>
+    </button>
+    <button class="fontStyle" onclick="document.execCommand( 'underline',false,null);"><u>U</u>
+    </button>
+</fieldset>
+<script src="nal10.js"></script>
+</body>
+</html>
