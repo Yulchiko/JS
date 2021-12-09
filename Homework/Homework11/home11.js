@@ -10,7 +10,6 @@ let users = [{name: 'o', age: 15}];
 //-створити форму з інпутами для model,type та volume автівки.
  //   при відпарвці форми об'єкти зберігаються в масиві в локальному сховищі.
 let circles1 = document.getElementById('circles1');
-let car = [];
 circles1.onclick = function (e){
     e.preventDefault();
     let auto = [{model: 'Ferrari', type: 'SF90', volume: 340}];
