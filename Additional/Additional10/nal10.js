@@ -26,6 +26,15 @@ a4.addEventListener('click', function (event) {
 });
 
 //-- взять массив пользователей
+
+//- Создать три чекбокса. Каждый из них активирует фильтр для вышесказанного массива. Фильтры могут работать как вместе так и по отдельности.
+//1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
+//2й - оставляет старше 29 лет включительно
+//3й - оставляет тех у кого город киев
+//Данные выводить в документ
+
+
+
 let usersWithAddress = [
     {id: 1, name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
     {id: 2, name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
@@ -39,39 +48,51 @@ let usersWithAddress = [
     {id: 10, name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
     {id: 11, name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
 ];
-//- Создать три чекбокса. Каждый из них активирует фильтр для вышесказанного массива. Фильтры могут работать как вместе так и по отдельности.
-//1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
-//2й - оставляет старше 29 лет включительно
-//3й - оставляет тех у кого город киев
-//Данные выводить в документ
-let fi = document.forms.f1;
 
-f1.onsubmit = function (e) {
-    e.preventDefault();
-    let city = this.city.value;
-    let age = this.age.value;
-    let status = this.status.checked;
-    console.log({city: city, age: age, status: !status});
-    console.log(usersWithAddress.filter(value => value.city === city || value.age === age || value.status !== 'status'));
+let statusInput = document.getElementById('status');
+let ageInput = document.getElementById('age');
+let cityInput = document.getElementById('city');
+
+let filter = document.getElementById("filter");
+let newArray = [];
+
+
+filter.onclick = function () {
+     let newArray = JSON.parse(JSON.stringify(usersWithAddress));
+    if (statusInput.checked) newArray = newArray.filter(user => !user.status);
+    if (ageInput.checked) newArray = newArray.filter(user => user.age > 29);
+    if (cityInput.checked) newArray = newArray.filter(user => user.address.city === 'Kyiv');
+
+
+    document.body.appendChild(filterUsers(newArray));
 }
+
+function filterUsers(array) {
+    const wrap = document.createElement('div');
+wrap.innerText = 'content'
+    array.forEach(user => {
+        newArray.push(user);
+
+        const p = document.createElement('p');
+        p.innerHTML =
+            `<hr>
+             Ім'я: <b>${user.name}</b>
+             вік:  <b>${user.age}</b><br>
+             місто: <b>${user.address.city}</b><br>
+             статус: <b>${user.status}</b>`;
+
+        wrap.appendChild(p);
+    });
+    return wrap;
+    content.append(filterUsers(usersWithAddress));
+}
+
+
 
 //*****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает в боди 2 кнопки (назад/вперед)
 //при нажатии вперед, вы переходите к дочернему элементу, при еще одном нажатии на "вперед", вы переходите к следующему дочернему элементу (лежащему на одном уровне)
 //НО если у (какого-либо)дочеренего элемента есть дети, то нажатие "вперед" позволяет нам войти внутрь элемента и  выводит первого ребенка. и тд.
 //  Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на одном уровне
-document.body.onclick = function (e) {
-    console.log(e.target.localName, e.target.id, e.target.classList.value, e.target.offsetWidth, e.target.offsetHeight);
-};
-function reCall(startElement) {
-    if (startElement.children.length) {
-        for (const element of startElement.children) {
-            reCall(element);
-
-        }
-    }
-
-}
-reCall(document.body);
 //- Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
 let lis = document.getElementsByTagName('li');
 for (let i = 0; i < lis.length; i++) {

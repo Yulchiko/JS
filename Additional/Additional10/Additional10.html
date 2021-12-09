@@ -138,12 +138,16 @@
         <a href="#" id="а4" onclick="this.style.display = 'none'" >clientWidth</a>
     </div>
 </div>
-<form action="/someaction" id="f1">
-    <input type="text" name="city"/>
-    <input type="number" name="age"/>
-    <input type="checkbox" name="status"/>
-    <button> Давай жми!</button>
-</form>
+
+
+<input type="checkbox" name="statusChecker" id="status">
+<label for="status">person status</label>
+<input type="checkbox" name="ageChecker" id="age">
+<label for="age">person age</label>
+<input type="checkbox" name="cityChecker" id="city">
+<label for="city">person city</label>
+<button id="filter">filter</button>
+
 <div id="carousel" class="carousel">
     <button class="arrow prev">⇦</button>
     <div class="gallery">
@@ -162,12 +166,7 @@
     </div>
     <button class="arrow next">⇨</button>
 </div>
-<div id="element">
-    <p id="ter">
-        <button id="btn">вперед</button>
-        <button id="btn1">назад</button>
-    </p>
-</div>
+
 <div id="editor1" contenteditable="true">
     The quick brown fox jumped over the lazy dog.
 </div>
