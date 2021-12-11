@@ -10,7 +10,7 @@
         body {
             display: flex;
             justify-content: space-evenly;
-                    }
+        }
 
         button{
             display: block;
@@ -21,7 +21,7 @@
             margin: 1px;
 
         }
-    </style>
+        </style>
 </head>
 <body>
 <script>
@@ -37,7 +37,7 @@
                 btn.innerText = 'details';
                 div.appendChild(btn);
                 btn.onclick = function (){
-                    alert(`${oUser.email} - ${oUser.username}`);
+                    alert(`${oUser.email} - ${oUser.username} - ${oUser.username} - ${oUser.address.street}- ${oUser.address.city}- ${oUser.address.zipcode} - ${oUser.address.geo.lat} - ${oUser.address.geo.lng} - ${oUser.phone}  - ${oUser.website} - ${oUser.company.name} - ${oUser.company.catchPhrase} - ${oUser.company.bs}`);
                 };
                 document.body.appendChild(div);
             }
