@@ -234,50 +234,51 @@
     ];
 
 //Створити під кожен елемент окремий блок. В цьому блоці, під кожну властивість, та властивості внутрішніх об'єктів створити свої окремі блок.
-for (const user of usersList){
-    let div = document.createElement('div');
-    div.innerText = user.id;
-       document.body.appendChild(div);
-    let div1 = document.createElement('div');
+
+    for (const user of usersList){
+        let div = document.createElement('div');
+        div.innerText = user.id;
+        document.body.appendChild(div);
+        let div1 = document.createElement('div');
         div1.innerText = user.name;
-    document.body.appendChild(div1);
-    let div2 = document.createElement('div');
-    div2.innerText = user.username;
+        document.body.appendChild(div1);
+        let div2 = document.createElement('div');
+        div2.innerText = user.username;
         document.body.appendChild(div2);
-    let div3 = document.createElement('div');
-    div3.innerText = `${user.email}`;
-      document.body.appendChild(div2);
-    let div4 = document.createElement('div');
-       document.body.appendChild(div4);
+        let div3 = document.createElement('div');
+        div3.innerText = `${user.email}`;
+        document.body.appendChild(div2);
+        let div4 = document.createElement('div');
+        document.body.appendChild(div4);
 
-    let p = document.createElement('p');
-    p.innerText = user.address.street;
-    div4.appendChild(p);
-    let p1 = document.createElement('p');
-    p1.innerText = user.address.suite;
-    div4.appendChild(p1);
-    let p2 = document.createElement('p');
-    p2.innerText = user.address.city;
-    div4.appendChild(p2);
-    let p3 = document.createElement('p');
-    p3.innerText = user.address.zipcode;
-    div4.appendChild(p3);
-    let p4 = document.createElement('p');
-      div4.appendChild(p4);
+        let p = document.createElement('p');
+        p.innerText = user.address.street;
+        div4.appendChild(p);
+        let p1 = document.createElement('p');
+        p1.innerText = user.address.suite;
+        div4.appendChild(p1);
+        let p2 = document.createElement('p');
+        p2.innerText = user.address.city;
+        div4.appendChild(p2);
+        let p3 = document.createElement('p');
+        p3.innerText = user.address.zipcode;
+        div4.appendChild(p3);
+        let p4 = document.createElement('p');
+        div4.appendChild(p4);
 
-       let p5 = document.createElement('p');
-       p5.innerText =user.address.geo.lat;
-               p4.appendChild(p5);
-       let p6 = document.createElement('p');
-       p6.innerText = user.address.geo.lng;
-       p4.appendChild(p6);   
-      let div5 = document.createElement('div');
-    div5.innerText = user.phone;
-    document.body.appendChild(div5);
-    let div6 = document.createElement('div');
-    div6.innerText = user.website;
-    document.body.appendChild(div6);
-    let div7 = document.createElement('div');
+        let p5 = document.createElement('p');
+        p5.innerText =user.address.geo.lat;
+        p4.appendChild(p5);
+        let p6 = document.createElement('p');
+        p6.innerText = user.address.geo.lng;
+        p4.appendChild(p6);
+        let div5 = document.createElement('div');
+        div5.innerText = user.phone;
+        document.body.appendChild(div5);
+        let div6 = document.createElement('div');
+        div6.innerText = user.website;
+        document.body.appendChild(div6);
+        let div7 = document.createElement('div');
         document.body.appendChild(div7);
 
         let p7 = document.createElement('p');
@@ -288,5 +289,5 @@ for (const user of usersList){
         div7.appendChild(p8);
         let p9 = document.createElement('p');
         p9.innerText = user.company.bs;
-        div7.appendChild(p9); 
-  }
+        div7.appendChild(p9);
+    }

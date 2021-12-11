@@ -32,9 +32,6 @@ a4.addEventListener('click', function (event) {
 //2й - оставляет старше 29 лет включительно
 //3й - оставляет тех у кого город киев
 //Данные выводить в документ
-
-
-
 let usersWithAddress = [
     {id: 1, name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
     {id: 2, name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
@@ -48,31 +45,23 @@ let usersWithAddress = [
     {id: 10, name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
     {id: 11, name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
 ];
-
 let statusInput = document.getElementById('status');
 let ageInput = document.getElementById('age');
 let cityInput = document.getElementById('city');
-
 let filter = document.getElementById("filter");
 let newArray = [];
-
-
 filter.onclick = function () {
      let newArray = JSON.parse(JSON.stringify(usersWithAddress));
     if (statusInput.checked) newArray = newArray.filter(user => !user.status);
     if (ageInput.checked) newArray = newArray.filter(user => user.age > 29);
     if (cityInput.checked) newArray = newArray.filter(user => user.address.city === 'Kyiv');
-
-
-    document.body.appendChild(filterUsers(newArray));
+  document.body.appendChild(filterUsers(newArray));
 }
-
 function filterUsers(array) {
     const wrap = document.createElement('div');
-wrap.innerText = 'content'
+wrap.innerText = 'content';
     array.forEach(user => {
         newArray.push(user);
-
         const p = document.createElement('p');
         p.innerHTML =
             `<hr>
@@ -80,15 +69,11 @@ wrap.innerText = 'content'
              вік:  <b>${user.age}</b><br>
              місто: <b>${user.address.city}</b><br>
              статус: <b>${user.status}</b>`;
-
         wrap.appendChild(p);
     });
     return wrap;
     content.append(filterUsers(usersWithAddress));
 }
-
-
-
 //*****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает в боди 2 кнопки (назад/вперед)
 //при нажатии вперед, вы переходите к дочернему элементу, при еще одном нажатии на "вперед", вы переходите к следующему дочернему элементу (лежащему на одном уровне)
 //НО если у (какого-либо)дочеренего элемента есть дети, то нажатие "вперед" позволяет нам войти внутрь элемента и  выводит первого ребенка. и тд.
