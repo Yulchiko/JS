@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .upper {
+        text-transform: uppercase;
+    }
+    .userCard {
+        width: 500px;
+        padding: 0 15px;
+        position: relative;
+        background-color: #52d5d0;
+        flex-direction: column;
+    }
+
+    .mode {
+        font-weight: 700;
+    }
+    .userCard span {
+        /*position: absolute;*/
+        left: 5%;
+    }
+    .userCard p {
+        border-bottom: 2px solid #413d3d;
+    }
+    .showPosts {
+        padding: 3px;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    .container {
+        position: relative;
+        align-items: flex-start;
+    }
+    .postC {
+        position: absolute;
+        text-align: left;
+        left: 50%;
+        bottom: 15%;
+    }
+    .postC p {
+        padding: 5px 0;
+    }
+    .close {
+        display: none;
+    }
+</style>
+<body>
+<a href="index..html"></a>
+<div class="container"></div>
+
+<script>
+    function storage() {
+        return JSON.parse(localStorage.getItem("user"));
+    }
+    let person = storage();
+
+    class Details {
+        constructor(id, name, username, email, address, phone, website, company) {
+            this.id = id;
+            this.name = name;
+            this.username = username;
+            this.email = email;
+            this.address = address;
+            this.phone = phone;
+            this.website = website;
+            this.company = company;
+        }
+        parser () {
+            let container = document.getElementsByClassName("container")[0];
+            let userCard = document.createElement("div");
+            userCard.classList.add("userCard");
+            container.appendChild(userCard);
+
+            userCard.innerHTML = `
+        <h3> ${this.name}</h3>
+        <p><span class="mode">id: </span> ${this.id}</p>
+        <span class="mode">username: </span> <p>${this.username}</p>
+        <span class="mode">email: </span> ${this.email}<p></p>
+        <p class="upper mode">address</p>
+        <span class="mode">street:</span> <p>${this.address.street}</p>
+        <span class="mode">suite:</span> <p>${this.address.suite}</p>
+        <span class="mode">city:</span> <p>${this.address.city}</p>
+        <span class="mode">zipcode:</span> <p>${this.address.zipcode}</p>
+        <p class="upper mode">geo</p>
+        <span class="mode">lattitude:</span> <p>${this.address.geo.lat}</p>
+        <span class="mode">longitude:</span> <p>${this.address.geo.lng}</p>
+        <span class="mode">phone:</span> <p>${this.phone}</p>
+        <span class="mode">website:</span> <p>${this.website}</p>
+        <p class="upper mode">company</p>
+        <span class="mode">name:</span> <p>${this.company.name}</p>
+        <span class="mode">catchPhrase:</span> <p>${this.company.catchPhrase}</p>
+        <span class="mode">bs:</span> <p>${this.company.bs}</p>`;
+
+            function posts() {
+                let showP = document.createElement("button");
+                showP.classList.add("showPosts");
+                showP.innerText = "post of current user";
+                userCard.appendChild(showP);
+
+                showP.onclick = () => {
+                    showP.classList.toggle("close")
+                    let postC = document.createElement("div");
+                    const url = `https://jsonplaceholder.typicode.com/users/${person.id}/posts`;
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(posts => posts.map(post => {
+                            postC.classList.add("postC");
+                            let postTitle = document.createElement("div");
+                            postTitle.innerHTML =`<b>title:</b> ${post.title}`;
+                            let more = document.createElement("a");
+                            more.innerText = "more";
+                            more.href="./post-details.html";
+                            postTitle.appendChild(more);
+                            postC.appendChild(postTitle);
+                        }));
+                    container.appendChild(postC);
+                }
+            }
+            posts();
+       }
+    }
+    let detail = new Details(person.id, person.name, person.username, person.email, person.address, person.phone, person.website, person.company);
+
+    detail.parser();
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<button type="button" class="btn">удалить</button>
+<script>
+let list = JSON.parse(localStorage.getItem('list'));
+console.log(list);
+for (const l of list){
+let div = document.createElement('div');
+div.innerHTML = JSON.stringify(l);
+document.body.appendChild(div);
+let btn = document.getElementsByClassName('btn');
+btn.onclick = function (){
+    btn.style.display ='none';
+}
+}
+</script>
+</body>
+</html>
