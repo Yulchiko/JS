@@ -35,21 +35,49 @@
         margin-bottom: 5px;
     }
     .container {
-        position: relative;
+        width: 1440px;
+        display: flex;
+        flex-wrap: wrap;
         align-items: flex-start;
+        justify-content: left;
+        margin: 0 auto;
     }
     .postC {
         position: absolute;
         text-align: left;
         left: 50%;
-        bottom: 15%;
+        bottom: 15%;display: flex;
+        width: var(--w100perc);
+        flex-wrap: wrap;
+        padding: 5px 3px;
+        justify-content: center;
+    }
+        .postC > div {
+        width: 45%;
+        border: 1px solid #021717;
+        border-radius: 10px;
+        background: aqua;
+            margin: 10px 10px;
+            box-shadow:0 0 10px ;
     }
     .postC p {
-        padding: 5px 0;
+        padding: 0;
     }
-    .close {
-        display: none;
+    .postC a {
+        display: block;
+
+        text-transform: uppercase;
+        text-decoration: none;
+                text-align: center;
+        padding: 2px 0;
+        color: #092a7e;
+        border-radius: 10px;
+        transition: background-color ease 0.3s;
     }
+    .postC a:hover {
+        background-color: blue;
+    }
+
 </style>
 <body>
 <a href="index..html"></a>
@@ -119,6 +147,11 @@
                             more.href="./post-details.html";
                             postTitle.appendChild(more);
                             postC.appendChild(postTitle);
+                            more.onclick = () => {
+                                let postInfo = {userId: post.userId, id: post.id, title: post.title, body: post.body};
+                                localStorage.setItem("postInfo", JSON.stringify(postInfo));
+                            }
+
                         }));
                     container.appendChild(postC);
                 }
