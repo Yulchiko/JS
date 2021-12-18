@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function goDoSport(ThisCharge = true) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (ThisCharge) {
+                    resolve('I have charge');
+                } else {
+                    reject('No breakfast, no strength');
+                }
+            }, 1000)
+        })
+    }
+
+    function goEat(eat) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (eat) {
+                    resolve(`Cooking ${eat}`);
+                } else {
+                    reject('Sit hungry and lose weight')
+                }
+            }, 2000)
+        })
+    }
+
+    function goWork() {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve('There is money - you can dream');
+
+            }, 8000)
+        })
+    }
+
+    function goToShop(shop) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (shop) {
+                    resolve('There is something to cook from there is food');
+                } else {
+                    reject('No honey')
+                }
+            }, 3000)
+        })
+    }
+
+    function goCleaningHouse(clean) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (clean) {
+                    resolve('The house is clean');
+                } else {
+                    reject('No cleanliness in the house, no comfort');
+                }
+            }, 2000)
+        })
+    }
+
+    function goCourses(homework) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (homework) {
+                    resolve('Hove time for English homework');
+                } else {
+                    reject('Do not sleep');
+                }
+            }, 2000)
+        })
+    }
+
+    goDoSport(true)
+        .then(morning => {
+            console.log(morning)
+            return goEat('Food');
+        })
+        .then(eat => {
+            console.log(eat);
+            return goWork();
+        })
+        .then(shop => {
+            console.log(shop);
+            return goCleaningHouse('cleaning');
+        })
+        .then(clean => {
+            console.log(clean);
+            return goCourses('Study');
+        })
+    .then(completedTask =>{
+        console.log(completedTask);
+        return goEat('Fruit');
+    })
+        .then(lunch =>{
+            console.log(lunch);
+        })
+    .catch(reason => {
+        console.log('ERRRRROPOOOR', reason);
+    })
+</script>
+</body>
+</html>

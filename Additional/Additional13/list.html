@@ -7,20 +7,57 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<style>
+    img {
+        width: 150px;
+        height: 150px;
+    }
+
+
+    .wrap > div {
+        border: 1px solid black;
+        padding: 5px 10px;
+        text-align: center;
+    }
+</style>
 <body>
-<button type="button" class="btn">удалить</button>
+<a href="Additional13.html">back to home page</a>
+<button id="clearStorage">удалить</button>
 <script>
-let list = JSON.parse(localStorage.getItem('list'));
-console.log(list);
-for (const l of list){
-let div = document.createElement('div');
-div.innerHTML = JSON.stringify(l);
-document.body.appendChild(div);
-let btn = document.getElementsByClassName('btn');
-btn.onclick = function (){
-    btn.style.display ='none';
-}
-}
+    let wrap = document.createElement("div");
+    wrap.classList.add("wrap");
+    document.body.appendChild(wrap);
+    let clear = document.getElementById("clearStorage");
+    clear.onclick = function () {
+        localStorage.clear();
+        location.reload();
+    }
+    let list = JSON.parse(localStorage.getItem('list'));
+    // console.log(list);
+    for (const l of list) {
+
+        let div = document.createElement('div');
+        let animal_species = document.createElement("p");
+        let price = document.createElement("p");
+        let img = document.createElement("img");
+        let btn = document.createElement('button');
+
+        div.innerHTML = JSON.stringify(l.animal_species);
+        btn.innerHTML = 'delete';
+        img.src = l.pic_url;
+
+
+        btn.onclick = function () {
+            let newR = JSON.parse(localStorage.getItem("list"));
+            newR.splice(newR.indexOf(l),1);
+            localStorage.setItem("list", JSON.stringify(newR));
+            // JSON.stringify(newR);
+            location.reload();
+        }
+        div.append(animal_species, price, img, btn)
+        wrap.appendChild(div);
+    }
+
 </script>
 </body>
 </html>
